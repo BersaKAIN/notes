@@ -15,3 +15,49 @@
 3. Give the interviewer the opportunity to ask some questions.
 4. Refine the solution.
 5. Give some test cases, also demonstrate that you can think of some outlier input case.
+
+
+
+
+# Problem solving hints
+
+## BFS
+In order to work in a graph, we need some states resemble the vertices in a graph.
+Cost is some time indicated, if not, we may use flood fill.
+
+
+## Flood Fill
+
+## Brute Force
+Number or size of the problem is limited
+
+## Backtrcking
+Usually problem needs to enumerate all permutation of a configuration.
+
+## DP
+Bigger problem can be essily solved by some smaller problems.
+
+## Hard Drill
+
+## MaxFlow
+
+## Optimal Pair Matching
+
+## Linear Programming 
+
+## 
+
+# Problems By Techniche
+## Recursion
+- Base case is handled without recursion.
+- Avoid infinite loop/ make sure it will end some time.
+
+## Dynamic Programming
+In general, problems can be solved using dynamic programming have some states. The larger states can be calculated easily using the smaller states.
+In many several pointer problems, we need to identify the last in/out to build such tables.
+
+- Beginner: The states chart is 1-D, examples are fibonacci sequence.
+
+- Medium: The states chart is 2-D. Observation of the states are not trivial.
+
+- Advanced
