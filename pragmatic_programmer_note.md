@@ -62,3 +62,23 @@ Get back to people. If you want people to respond to your emails, you will have 
 
 Buy low and sell high: This means learn some technolodge before it gets popular. Which will involve constanting trying new things out and the instinct of seeing future trend.
 
+# Pragmatic Approach
+
+## Evils of Duplication
+The program we write is a code representation of our knowledge of natural laws and customer requirement. We want to put a single piece of knowledge in a single, umambiguous place. We Don't Repeat Yourself. We want to avoid duplication. It might be easy when you are writing the code, but it will introduce more, much more, complexity when you are maintaining the code.
+
+However, there are cases that duplication seem impossible to avoid.
+- Imposed Duplicaiton: Duplications that are imposed by the system, using different languages. We can address this by using some form of metadata and take those metadata to generate code in different languages or in different layer of the system.
+
+- Inadvertent Duplication: Duplication introduced by bad design.
+
+- Impatienet Duplication: Duplication introduced by bad habits of programmer.
+
+- Interdeveloper Duplication: Duplicaiton introduced by multiple programmers having their own implementation of the same knowledge.
+
+## Orthogonality
+
+When DRY means avoid duplication of knowledge in the code. Orthogonality means avoid dependency amongst different parts of code. Changing the internal behavior of some module should affect the others.
+
+## Reversibility
+

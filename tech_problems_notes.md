@@ -3,6 +3,12 @@
 - 
 
 
+## Asking questions
+show your interest in the team, the technology and possibly combine it with your experience.
+team technologies
+java / aws tech / elb / machine learning / backend database / red shift / dynamo
+
+
 
 
 - When you face math problems, always take extra attention. Consider negativity, fraction, decimal, overflow etc
