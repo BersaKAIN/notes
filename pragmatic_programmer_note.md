@@ -56,6 +56,8 @@ Know your audience and prepare what they can understand and are interested in. T
 
 Choose the right moment of talking, always start by asking: "Is it a good time to talk about ...? "
 
+Get back to people. If you want people to respond to your emails, you will have to respond to theirs in the first place.
+
 
 
 Buy low and sell high: This means learn some technolodge before it gets popular. Which will involve constanting trying new things out and the instinct of seeing future trend.
