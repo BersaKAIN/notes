@@ -1,3 +1,10 @@
+- Be passionate about your resume, show your passion about CS and your projects.
+- Why this company, why this position, why me.
+- 
+
+
+
+
 - When you face math problems, always take extra attention. Consider negativity, fraction, decimal, overflow etc
 - Be careful to use extended negative slice for arrays. Note the end of slice are excluded.
 - Remember to discuss corner case outlier input with the interviewer.
@@ -15,8 +22,7 @@
 3. Give the interviewer the opportunity to ask some questions.
 4. Refine the solution.
 5. Give some test cases, also demonstrate that you can think of some outlier input case.
-
-
+6. Give some comment for the variables you are naming
 
 
 # Problem solving hints
