@@ -12,7 +12,7 @@ Kaizen is the Japanese term for continuously making small improvements. This is 
 ## 
 
 The greatest of all weaknesses is the fear of appearing weak. 
-- J. B. Bossuet
+-- J. B. Bossuet
 
 ## Take Responesbility
 
@@ -81,4 +81,21 @@ However, there are cases that duplication seem impossible to avoid.
 When DRY means avoid duplication of knowledge in the code. Orthogonality means avoid dependency amongst different parts of code. Changing the internal behavior of some module should affect the others.
 
 ## Reversibility
+
+Nothing is more dangerous than an idea if it's the only one you have.
+
+-- Emil-Auguste Chartier, Propos sur la religion, 1938
+
+very true for me, having an cool idea and walk around and sell the idea, but if that is the only thing you have, it's either easy to be copied or it's just idea without implementation.
+
+
+Critical decisions in programming often involves drastic change either in the language/system/architecture/third-party software. Your responsibility is then to design the system to make the program robust in such situation.
+
+COBRA: Common Object Request Broker Architecture, an architecture that enables pieces of programs, called objects, to communicate with one another regardless of what programming language they were written in or what operating system they're running on.
+
+## Tracer Bullets
+
+Tracer bullets and prototype.
+
+
 
