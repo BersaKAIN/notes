@@ -95,7 +95,77 @@ COBRA: Common Object Request Broker Architecture, an architecture that enables p
 
 ## Tracer Bullets
 
-Tracer bullets and prototype.
+Tracer bullets and prototype. Tracer bullets are skeleton of your future project. One big difference between prototype and tracer bullets is that the code of prototype is disposable while the code of tracer bullets will stay and be the foundation of the project.
+
+Make prototype when there is risk about decison. If you are not sure of some choice or you have never done some thing, make a prototype to verify your idea.
+
+## Domain Languages
+
+The limits of language are the limits of one's world.
+-- Ludwig Von Wittgenstein
+
+The language you use may affect the way of your thinking.
+
+So, we can implement a mini-languege to cover specific task.
+C++ users can use Yacc and Java users can use javaCC. We can also use extension feature in some language (such as in python) to cover this part.
+
+
+## Estimating
+
+
+We need estimation of answer almost all questions. The only difference is the accuracy. When the manager ask you many long will the work take, think about it. The units of your answer also imply the accuracy of the answer. 125 working days and 6 month are actually the same while the expectation of the asker may vary. Also, have an understanding of how accurate does the asker want. Your mom asking for dinner time may be ok with 30min error, while the manager asking for time of a request should expect some mili-second error answer.
+
+
+Don't just give your answer, also give your model and reasoning behind it. This will help someone else to find potential error in your estimation. The finer your model is, the more accurate your estimation will be. Let your experience lead you to some where you have been through and thus make the estimation rather accurate. When you are calculating the answer using your model, use some parameters and probably calculate them in a spreadsheet. After you make your estimation, keep track of your progress and refine the model often.
+
+Now the real question is: what to say when you are asked for the estimate. SAY "I'll get back to you." Get some results after thinking rather than guessing some number at the coffee machine.
+
+
+# The basic Tools
+
+Programmers, like all craftsman, need tools. However let the need guide you what tools to find rather than the opposite, let the tools define what you can do.
+
+## Debugging
+It is a painful thing
+To look at your own trouble and know
+That you yourself and no one else has made it
+-- Sophocles, Ajax
+
+No software is perfect and there is always bug in it. Don't blame yourself or someone when you are debugging the system. Try to consider it as a problem solving. Believe in your logic and don't go to mad about it. Take a break if you need it.
+
+
+# A Debugging Mindset
+
+The easiest person to deceive is one's self
+-- Edward Bulwer-Lytton, The Disowned
+
+Don't panic, there are times that after spending hours on a bug you feel your code should work and it is the language itself or somewhere else in the system to blame rather than your own code. DON'T! Most of the time it should be in your code and it's just too stupid to find. Instead of blaming others, start to review all your assumptions and the reason about where the error might be.
+
+Once you think you know what is going on, make sure the program thinks the same.
+
+Try to explain the problem to another one, or even a rubber duck.
+
+"select is broken". We worked on a project where a senior engineer was convinced that the select system call was broken on Solaris. No amount of persuasion or logic could change his mind (the fact that every other networking application on the box worked fine was irrelevant). He spent weeks writing work-arounds, which, for some odd reason, didn't seem to fix the problem. When finally forced to sit down and read the documentation on select, he discovered the problem and corrected it in a matter of minutes. We now use the phrase "select is broken" as a gentle reminder whenever one of us starts blaming the system for a fault that is likely to be our own.
+
+# Pragmatic Paranoia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
