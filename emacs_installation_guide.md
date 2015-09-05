@@ -1,7 +1,10 @@
 # Emacs Installation Guide
+This guide is used to reproduce my installation of emacs and all it's configurations. It is supposed to work on `OS X 10.10`. 
 
+The idea of the repo is to easily install emacs on any new machine including remote terminals.
 
-## install the official distribution of emacs
+## Install the official distribution of emacs
+First we need to install the official version of emacs. The latest right now is 24.5 and I am assuming 24.5+ for all the packages to work.
 
 ### Installing emacs using brew
 ````
