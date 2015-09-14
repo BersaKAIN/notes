@@ -63,3 +63,16 @@ To update spacemacs:
 ````
 git pull --rebase; git submodule sync; git submodule update
 ````
+
+### Personal Layer
+You can create your personal layer by `M-x configuration-layer/create-layer`
+
+My personal layer resides in this [repo](https://github.com/BersaKAIN/dotfiles)
+So to install the layey into `spacemacs`:
+````
+cd ~
+git clone https://github.com/BersaKAIN/dotfiles
+# then link the the directory BersaKAIN to your private folder
+ln -s BersaKAIN ~/.emacs.d/private/BersaKAIN
+# include your layer in .spacemacs file. Append <layer-name> in your dotspacemacs-configuration-layers variable
+````

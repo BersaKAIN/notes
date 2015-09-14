@@ -184,5 +184,60 @@ will return error message.
 
 - setq :: (setq <variable_name_1> <value_1> ... <variable_name_n> <value_n>) setq actually does two things. First it free us from adding a quote for the variable. Second, it allows multiple assignment in a single list)
 
-    
+*** Evaluating
+**** Buffer
+Buffer, at the time of its invention, was used to cushion the the file system and the CPU. In modern days, this is no longer its major purpose. Now, buffers are used to make a copy of the file in memory for the user to edit. And when the user has done editing, he will save the changes to the file
+`buffer-name' and `buffer-file-name' will return the name of the buffer and the name of the file the buffer refer to.
+`current-buffer' on the other hand will return the buffer itself.
+`other-buffer' return the most recent buffer other than the current.
+`switch-to-buffer' change the buffer in the current window.
+`set-buffer' switches the attention to adifferent buffer.
+`buffer-size' `point' are the total number of characters in the buffer and the position where the cursor is current at.
 
+*** Define Function
+**** The `defun' Macro
+#+BEGIN emacs-lisp
+(defun FUNCTION-NAME (ARGUMENTS...)
+       "OPTIONAL-DOCUMENTATION..."
+       (interactive ARGUMENT-PASSING-INFO)     ; optional
+       BODY...)
+#+END
+
+- elisp functions only take arguments by value
+- interactive arguments can be found online.
+  - p :: emacs should interpret a prefix as a number and pass that number to the function.
+- evaluting the defun block will install the function to emacs until you quit emacs. If you want to install the function permanently, you should include its definition in the emacs initialization file.
+  - You can include the `defun' block in the init file or you include it in some file and load that file in your init file.
+- The variables assigned by a `let' expression only retain their value within the `let' expression (and any expression called within the `let' expression)
+**** `let' special form:
+- Template of `let':
+#+BEGIN emacs-lisp
+(let ((VARIABLE VALUE)
+      (VARIABLE VALUE)
+      ...
+      VARIABLE_WITH_NO_INIT_VALUE
+      VARIABLE_WITH_NO_INIT_VALUE
+      ...)
+  BODY...)
+#+END
+****  `if' special form
+(if TRUE-OR-FALSE-TEST
+    ACTION-TO-CARRY-OUT-IF-TEST-IS-TRUE
+    ACTION_TO_CARRY_OUT_IF_THE_TEST_RETURNS_FALSE)
+- In elisp, `false' is just `nil' and anything else is `true'! Also, `()', the empty list is identical to `nil'!
+
+**** `save-excursion' special form
+- `save-excursion' marks the current point and save it in the `mark-ring'. Later when you C-x C-x, it will jump to the mark and set the current position to be the mark.
+- The text between the mark and point will be select as a `region'. We can `kill-region' and do various stuff to it.
+
+**** Review of the chapter is good to refresh memory
+*** More Functions
+**** `find-tag'
+- `find-tag' will find you the source code of the function you are looking for.
+- `find-tag' is invoked by `C-.' <funciton-name> RET
+- You can return to where you are by `C-x b RET', which helps you to return the previous buffer
+- `find-tag' will need a `tags-table' to do the search. The `tags-table' is stored in some `TAGS' file. You can create your own TAGS file by `M-x compile RET etags *.el RET'
+**** `beginning-of-buffer'
+- `M-<' for beginning; `M->' for end of buffer.
+**** `mark-whole-buffer'
+- `C-x h' 

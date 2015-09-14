@@ -93,7 +93,9 @@ less huge_log_file.log
 # TODO: http://www.thegeekstuff.com/2011/01/regular-expressions-in-grep-command/
 # TODO: http://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/
 
-
+# link function
+# source are the existing files/dir and the target is the where the pointer locates.
+ln -s <source_file/dir> <target_file/dir>
 
 
 
