@@ -58,3 +58,8 @@ git clone git@github.com:powerline/fonts.git
 ````
 
 After installing the powerline fonts, you will need to config the terminal to use the font. For iterm2, it's `preference -> profile -> text -> regular and non ASCII font`
+
+To update spacemacs:
+````
+git pull --rebase; git submodule sync; git submodule update
+````

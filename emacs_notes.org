@@ -1,0 +1,188 @@
+* Emacs Notes
+
+This article is written to keep track my learning of emacs. The learning is based on a popular emacs configuration [Spacemacs](https://github.com/syl20bnr/spacemacs)
+I hope it will combine the best of all worlds, the vim world, emacs world and the ideas of spacemacs.
+
+** Four Pillars of Spacemacs
+
+The four pillars are: Mnemonic, Discoverability, Consistency, "Crowd-Configured"
+
+- Mnemonic: All key bindings are easy to memorize.
+- Discoverability:
+- Consistency: Similar key bindings in different modes.
+- Crowd-Configured: Make personal configuration easy to organize and compatible with the official update.
+
+
+** Layer
+
+The layer structure looks like:
+
+````
+[layer_name]
+  |__ [extensions]
+  | |__ [mode 1]
+  | |     ...
+  | |__ [mode n]
+  |__ config.el
+  |__ extensions.el
+  |__ funcs.el
+  |__ keybindings.el
+  |__ packages.el
+
+[] = directory
+````
+
+where:
+
+| File           | Usage                                                                |
+|----------------+----------------------------------------------------------------------|
+| config.el      | Emacs built-in configuration or mandatory configuration              |
+| extensions.el  | The list of extensions to load and the functions to initialize them  |
+| funcs.el       | Various functions and macros (often used in keybindings.el)          |
+| keybindings.el | Emacs built-in key bindings or mandatory key bindings                |
+| packages.el    | The list of packages to install and the functions to initialize them |
+
+In each layer, we can include packages and exclude specific packages. We can also define functions, key-bindings and extensions and configs in it.
+
+There are three types of layer:
+- core: by spacemacs
+- private: personal configs
+- contrib: shared by communities or merged in to upstream
+
+
+** Basic Controller Flow in spacemacs
+
+`di"`: delete inside
+`da"`: delete around
+`viB`: B here is for the block enclosed by curly braces
+`tx`, `Tx`: till forward and till backward
+
+
+registers
+macro
+moving around windows and buffers
+
+*** more navigations
+- C-d/C-u: down/up half page
+- C-f/C-b: down/up full page
+
+*** Info reader in emacs
+Many tutorials are written in the info format.
+
+- n/p: next/previous node in the same level
+- `]'/`[': next/previous node in the sequence
+- till 1.6
+*** organizing windows
+    SPC-w: view all window commands
+           c: close
+           w: toggle window
+           h: move to the window left to the current one
+           l: move to the window right to the current one
+           2: 2-column mode
+           /: split window right
+           -: split window bottom
+
+*** Buffers
+
+*** Toggle
+    SPC-t: to enter all toggle commands
+           G: guide key (reminding you what possible commands will be)
+           i: indent guide (the line to deliminate the identation)
+           F: auto fill
+           n: line number
+           r: relatvie line number
+
+
+dired
+projectile
+multi cursor
+eshell
+latex preview
+magit
+narrowing/widening
+surround
+
+** Org-mode
+   [[http://orgmode.org/worg/org-tutorials/org4beginners.html][Quick Org Guide]]
+*** Basic Controlls
+- TAB: fold/unfold
+- M-up/down: move a headline up/down
+- M-left/right: promote/demote a headline
+- M-S-left/right: promote/demote a item, with all its children
+- M-RET: insert an item
+- S-left/right: cycle the bullet style for lists
+ 
+
+*** Hyperlink
+**** Links in org are of the format
+````
+"[[link][description]]"
+````
+Use C-c C-l to edit the invisible part of the link (When the cursor is on the link, else it will create a new link)
+**** Internal links
+- If the `link' part is like [#custom-id], it will look for the `custom-id' in the file.
+- If the `link' part is not a url like link, it will search for text in the file.
+**** External links
+- External links can handle url, file (relative and absolute path)
+- File can be opened with emacs or using the OS default.
+**** Include Source Code
+- Source code can be include using 'src' block:
+
+**** Exporting to HTML and Md
+- C-c C-e to go into export settings.
+  - m: MardDown
+    - m: lower case will overwrite on the original file without warning
+    - M: upper case will export to a new buffer without creating a new file
+    - o
+  - h: html
+    - h
+    - H
+ 
+[#+NAME: <name>]
+#+BEGIN_SRC <language> [<switches>] [<header arguments>]
+<body>
+#+END_SRC
+
+- C-c ' to edit the code block in a buffer being in major mode of that language.
+- <header arguments> are optional setups to change the behavior of the code block
+
+
+** Emacs Lisp
+
+*** Lisp stands for List Processing
+
+- Lisp expresion is either a list or a symbol. They are the basic element of the 
+language. An lisp expression must always return a value.
+
+- List is made up of zero or more symbols. Lisp uses parentheses to mark the 
+boundaries of lists. List are the basis of Lisp.
+
+- A symbol may have either or both a variable and a function asscociate with it.
+So every symbol has a variable part and a function part. When the part is not 
+set, it's a void variable/function. Trying to access the void part of the symbol 
+will return error message.
+
+- The quotation mark is abbreviation for the function `quote'
+
+- In lisp, data and function are of the same type: list.
+
+- Atoms in lisp are the components that indivisible. Symbols, numbers and strings are
+  all types of atoms.
+
+- In lisp, any list is a program ready to run. And it only runs in one of three ways.
+  1. Do nothing. This happens when the list is preceded by `''
+  2. Send you an error message
+  3. Evaluate the list. (This approach will take the first atom of the list as command and the rest as arguments) (C-x C-e will execute the list when the cursor is on the closing parenthsis of the list)
+
+- Other than functions, there are "special forms" and "macros" that don't work in the usual manner as normal functions do.
+
+- The order of lisp evaluation: left to right, inner list then outer.
+
+*** Setting the value of a variable
+
+- set :: (set '<variable_name> <value>)
+
+- setq :: (setq <variable_name_1> <value_1> ... <variable_name_n> <value_n>) setq actually does two things. First it free us from adding a quote for the variable. Second, it allows multiple assignment in a single list)
+
+    
+
