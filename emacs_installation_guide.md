@@ -9,8 +9,10 @@ First we need to install the official version of emacs. The latest right now is 
 ### Installing emacs using brew
 ````
 brew update
-brew install emacs --with-cocoa
+brew tap railwaycat/emacsmacport
+brew install emacs-mac
 
+# make the app to show up in application folder
 brew linkapps emacs
 ````
 
