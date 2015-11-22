@@ -1,0 +1,93 @@
+
+
+* Lexical Analysis
+
+First the LA needs to separate the string in the file into a list lexemes (meaning the substrings that will later be transformed to tokens)
+  
+** Token classes
+*** Identifiers: strings of letters or digits, starting with a letter.
+*** Integer (shold really be number here, both integer literal and real literals): a non-empty string of digits.
+*** Keyword: functional keywords
+*** Whitespace: a non-empty sequence of blanks newlines and tabs.
+*** Operator
+*** Parens, and semicolon(if we need any semicolon)
+
+This is more like the POS tagging in NLP, it will tag the rols to each of the tokens and pass the information to the parser.
+
+String (plain text in file) => LA => token ( a pair of class and string: <Class, string>) => Parser
+
+The LA is reading thed string from left to right, this might need to lookahead in the string to understand the role of some substring.
+Lookahead is always needed but we want to minimize it.
+Examples are 
+`==`: is it a assign operator or equal operator?
+Keywords: are the just normal variable names or are they actually keywrods.
+Do we reserve keywords? (please do)
+
+Easier code include in org?
+
+
+** Regular Languages
+A language is a collection of strings (or vovabularies).
+
+*** Base
+single characters and empty string
+
+*** Composition
+Union
+COncatenation
+Iteration
+of regular languages are still regular language.
+
+Regular expressions over some alphabet `Sigma`, are the smallest set of expressions including
+- Empty
+- Single charater in the alphabet
+- Union
+- Concatenation
+- Iteration
+  
+Regular expressions( syntax ) will specify regular languages. They can be thought of a compact representation of regular languages.
+
+** Formal language
+
+*** To define a formal language we need an alphabet. And the language will be a set of strings drawn from the alphabet.
+
+Eg: Alphabet can be  ASCII, and C programs can be the language.
+
+*** Meaning function L maps syntax to semantics.
+*** Language function L maps syntax into set of strings(language)
+Eg: L will map a syntax ( a regular expression) into a set of strings.
+The title does not mean the same to me with it's contents. And they actually are And they actually are.
+
+Semantics are more about the inner meaning of strings while syntax care more about the text representation about them.
+So that syntax is about notation of semantics and we can have different syntax arabic numbers and Roman numerals to represent the same meaning.
+
+** Finite Automata
+   Giving a string and some regular expressions.
+   If we want to tokenize the string into the languages represented by the regex,
+we will face ambiguities.
+To resolve those, there are some rules we should make:
+- Maximun Munch :: Try to match as long as you can.
+- Priority of languages :: For all the languages (regex) are matching to, give them an order and match to the more prioritized one.
+- Have a error language to make error handling easier :: If some part of the string cannot match to any of the languages, then we should return some error. To make return the error easier and clearer, we can just put a language matching all possible strings at the end of the priority queue of languages.
+Then all strings/substrings that match no one will come to the error language and making the reporting of error easier.
+
+*** Finite automata
+Finite automata is actually a easy implementation of match the string into some regular languages.
+There is a one-to-one mapping from fsa to regex.
+
+A FSA is composed of
+1. Alphabet
+2. States
+3. Accepting states
+4. Transitions
+5. Start state
+   
+If given input can get us into some accepting states, and we are at the end of the input, then we accept.
+If we are stuck in some non-accepting state, we reject the input.
+
+**** Deterministic Finite Automata and Nondeterministic Finite Automata
+DFA cannot have epsilon move. In DFA, the transitions are determined by the input.
+NFA on the other hand, can choose multiple paths. It will accept a string if there is one path that will lead to the final state.
+So when a NFA is reading an input, it can be at different states while the DFA can only be at one state when we are at certain position of the input.
+NFA and DFA are same as if representation power, they both rebognize regular languages.
+However, NFA are generally smaller and it can sometimes be exponentially smaller.

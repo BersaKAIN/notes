@@ -1,9 +1,9 @@
-* Emacs Notes
-
+* Spacemacs 
+** Spacemacs
 This article is written to keep track my learning of emacs. The learning is based on a popular emacs configuration [Spacemacs](https://github.com/syl20bnr/spacemacs)
 I hope it will combine the best of all worlds, the vim world, emacs world and the ideas of spacemacs.
 
-** Four Pillars of Spacemacs
+*** Four Pillars of Spacemacs
 
 The four pillars are: Mnemonic, Discoverability, Consistency, "Crowd-Configured"
 
@@ -13,7 +13,7 @@ The four pillars are: Mnemonic, Discoverability, Consistency, "Crowd-Configured"
 - Crowd-Configured: Make personal configuration easy to organize and compatible with the official update.
 
 
-** Layer
+*** Layer
 
 The layer structure looks like:
 
@@ -49,19 +49,12 @@ There are three types of layer:
 - private: personal configs
 - contrib: shared by communities or merged in to upstream
 
-
-** Basic Controller Flow in spacemacs
-
-`di"`: delete inside
-`da"`: delete around
-`viB`: B here is for the block enclosed by curly braces
-`tx`, `Tx`: till forward and till backward
+To check the ducumentation of the layers and packages: `M-m f e h'
 
 
-registers
-macro
-moving around windows and buffers
 
+
+*** Spacemacs Navigation
 *** more navigations
 - C-d/C-u: down/up half page
 - C-f/C-b: down/up full page
@@ -71,7 +64,11 @@ Many tutorials are written in the info format.
 
 - n/p: next/previous node in the same level
 - `]'/`[': next/previous node in the sequence
+- `M-x info-last': to go to the last node of visit
+- `g': to go to any node by searching name
+- `i': search item in the index of the info
 - till 1.6
+
 *** organizing windows
     SPC-w: view all window commands
            c: close
@@ -93,58 +90,25 @@ Many tutorials are written in the info format.
            r: relatvie line number
 
 
-dired
-projectile
-multi cursor
-eshell
-latex preview
-magit
-narrowing/widening
-surround
+** Evil and Vim related packages
+registers
+macro
+moving around windows and buffers
 
-** Org-mode
-   [[http://orgmode.org/worg/org-tutorials/org4beginners.html][Quick Org Guide]]
-*** Basic Controlls
-- TAB: fold/unfold
-- M-up/down: move a headline up/down
-- M-left/right: promote/demote a headline
-- M-S-left/right: promote/demote a item, with all its children
-- M-RET: insert an item
-- S-left/right: cycle the bullet style for lists
- 
+*** Surround
+Surround is a vim package to handle surrounding parens/bracket/curlies and html/xml tags.
 
-*** Hyperlink
-**** Links in org are of the format
-````
-"[[link][description]]"
-````
-Use C-c C-l to edit the invisible part of the link (When the cursor is on the link, else it will create a new link)
-**** Internal links
-- If the `link' part is like [#custom-id], it will look for the `custom-id' in the file.
-- If the `link' part is not a url like link, it will search for text in the file.
-**** External links
-- External links can handle url, file (relative and absolute path)
-- File can be opened with emacs or using the OS default.
-**** Include Source Code
-- Source code can be include using 'src' block:
+**** General Idea of the commands
+The commands are of the form: [ycd] s [<old_surrounding_obj>] <new_surrounding_item>
 
-**** Exporting to HTML and Md
-- C-c C-e to go into export settings.
-  - m: MardDown
-    - m: lower case will overwrite on the original file without warning
-    - M: upper case will export to a new buffer without creating a new file
-    - o
-  - h: html
-    - h
-    - H
- 
-[#+NAME: <name>]
-#+BEGIN_SRC <language> [<switches>] [<header arguments>]
-<body>
-#+END_SRC
-
-- C-c ' to edit the code block in a buffer being in major mode of that language.
-- <header arguments> are optional setups to change the behavior of the code block
+For example:
+- `cs"'' :: cut the text within the surrounding `"' inclusive and replace the surrounding item with `''.
+- `ysiw(' :: yank the text within the surrounding `iw' (which means text object which i guess should be a word) and surround it with `('.
+- `yss)' :: yank the text within the surrounding `s' (which means the line) and surround it with `('.
+- `di"` :: delete inside parens/brackets/curlies, will delete everything inside the parens/... 
+- `da"` :: delete around parens/brackets/curlies, will delete the surrounding parens/...
+- `viB` :: B here is for the block enclosed by curly braces, it can be either parens/...
+- `tx`, `Tx` :: till forward and till backward
 
 
 ** Emacs Lisp
@@ -220,6 +184,7 @@ Buffer, at the time of its invention, was used to cushion the the file system an
       ...)
   BODY...)
 #+END
+- The idea of `let' is to define some variables and make those variable not confused with anything outside the `let' function.
 ****  `if' special form
 (if TRUE-OR-FALSE-TEST
     ACTION-TO-CARRY-OUT-IF-TEST-IS-TRUE
@@ -241,3 +206,134 @@ Buffer, at the time of its invention, was used to cushion the the file system an
 - `M-<' for beginning; `M->' for end of buffer.
 **** `mark-whole-buffer'
 - `C-x h' 
+
+  
+** Helm
+- `C-h': To enter help command page.
+  - `m': Help about current mode.
+  - `k': Help about key.
+  - `f': Help function.
+
+
+
+** Org-mode
+   [[http://orgmode.org/worg/org-tutorials/org4beginners.html][Quick Org Guide]]
+*** Basic Controls
+- M-up/down: move a headline up/down
+- TAB: fold/unfold
+- M-left/right: promote/demote a headline
+- M-S-left/right: promote/demote a item, with all its children
+- M-RET: insert an item
+- S-left/right: cycle the bullet style for lists
+
+*** Motion
+- C-c
+  - C-n/C-p: next/previous heading
+  - C-f/C-b: next/previous heading in the same level
+  - C-u: to the higher level of heading
+
+*** Table
+| Column1 | Column2 | Column |
+|---------+---------+--------|
+| Val1    | Val2    | Val3   |
+
+Above is a sample table.
+- C-c C-c: re-align table without moving the cursor.
+- C-c RET: re-align table and enter the next row.
+- TAB: re-align table and move to the next column.
+- S-TAB: re-align table and move to the previous column.
+- M-Left/Right: move the column to left/right.
+- M-S-Left: kill the current column.
+- M-S-Right: create a column to the left of the current column.
+- M-Up/Down: Move the current row up/down.
+- M-S-Up: Kill the current row or horizontal line.
+- M-S-Down: create a row above the current row.
+
+
+*** Hyperlink
+**** Links in org are of the format
+````
+"[[link][description]]"
+````
+Use C-c C-l to edit the invisible part of the link (When the cursor is on the link, else it will create a new link)
+**** Internal links
+- If the `link' part is like [#custom-id], it will look for the `custom-id' in the file.
+- If the `link' part is not a url like link, it will search for text in the file.
+**** External links
+- External links can handle url, file (relative and absolute path)
+- File can be opened with emacs or using the OS default.
+**** Include Source Code
+- Source code can be include using 'src' block:
+**** Exporting to HTML and Md
+- C-c C-e to go into export settings.
+  - m: MardDown
+    - m: lower case will overwrite on the original file without warning
+    - M: upper case will export to a new buffer without creating a new file
+    - o
+  - h: html
+    - h
+    - H
+ 
+[#+NAME: <name>]
+#+BEGIN_SRC <language> [<switches>] [<header arguments>]
+<body>
+#+END_SRC
+
+- C-c ' to edit the code block in a buffer being in major mode of that language.
+- <header arguments> are optional setups to change the behavior of the code block
+*** TO-DO Items
+**** Toggle TODO items and custom TODO states
+- S-Left/Right: toggle between Normal/TODO/DONE for an item.
+  Moreover, you can create more keywords for the workflow of just `TODO' and `DONE'.
+#+BEGIN emacs-lisp
+(setq org-todo-keywords '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
+#+END
+The vertical bar `"|"' is deliminating need action and need not action, i.e., any keywords after the bar are similar to `DONE' and need no further actions.
+- S-M-RET: create a new TODO item.
+- It also supports using different sets of TODO states.
+**** Progress logging
+- For custom TODO states, add flags in a pair of parenthesis after the keyword to allow progress tracking.
+  - `!' for timestamp and `@' for note(put the progress logging into a note).
+  - eg: 
+#+TODO TODO(t) WAIT(w@/!) | DONE(d!) CANCELED(c@)
+**** Breaking tasks into subtasks
+- Append the TODO item with `[/]' for fraction overview and `[%]' for percentage overview.
+***** Fraction [1/2]
+****** DONE A
+****** TODO B
+***** Percentage [33%]
+****** DONE A
+****** TODO B
+**** Checkbox
+- Just insert `[]' before the TODO plain list.
+- C-c C-c: to toggle the checkbox.
+- [X] : sample checkbox created by M-S-RET
+**** [#A] Priority
+- [#A] [#B] [#C] are the default priority states.
+- M-Up/Down : to cycle between priority states.
+**** Tags                                                        :Sample Tag: :Another Sample Tag: :@work:
+- A Headline can be appended by one or a list of tags, e.g., :<tag1>:<tag2>...:<tag_n>
+- C-c C-q: will allow to create a new tag and allow alignment for the tag.
+***** Inheritance
+Tags have inheritance, i.e., subheadlines will inherit all tags of its ancestors.
+***** Setting tags                                             :@work:laptop:
+- Within a file, tags can be set:
+#+BEGIN emacs-lisp
+#+TAGS: @work @home @tennisclub
+#+TAGS: laptop car pc sailboat
+#+END
+- Or set a global variable `org-tag-alist'
+````
+(setq org-tag-alist `(("@work" . ?w) ("@home" .?h) ("laptop" . ?l)))
+````
+***** Tag groups
+
+* Future package/layer to cover
+dired
+projectile
+multi cursor
+eshell
+latex preview
+magit
+narrowing/widening
+surround
