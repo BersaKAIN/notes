@@ -91,3 +91,13 @@ NFA on the other hand, can choose multiple paths. It will accept a string if the
 So when a NFA is reading an input, it can be at different states while the DFA can only be at one state when we are at certain position of the input.
 NFA and DFA are same as if representation power, they both rebognize regular languages.
 However, NFA are generally smaller and it can sometimes be exponentially smaller.
+NFA to DFA
+
+epsilon closure of a state :: states can be reached by only epsilon moves.
+
+How to translate from NFA to DFA:
+NFA -> DFA
+States S -> subsets of S (which is the reason why DFA can be exponentially larger than NFA)
+Start state s -> e-clos(s)
+End state e -> e-clos(e)
+Transition rule X ->(a) Y in DFA if Y = e-clos(a(X))
