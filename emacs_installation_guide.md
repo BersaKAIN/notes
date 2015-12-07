@@ -78,3 +78,16 @@ git clone https://github.com/BersaKAIN/dotfiles
 ln -s BersaKAIN ~/.emacs.d/private/BersaKAIN
 # include your layer in .spacemacs file. Append <layer-name> in your dotspacemacs-configuration-layers variable
 ````
+
+### Auto-Complete
+#### Installation
+[https://github.com/syl20bnr/spacemacs/tree/master/layers/auto-completion]
+
+I will use `company-mode` for auto completion.
+Some of the nice features from other IDEs:
+- suggest even after the dot.
+- show function argument and return type
+- xcode like interface of function snippets
+- documentation and code lookup 
+
+I am actually not sure how vim and emacs should serve as text editor, many of the new ones are providing easier setup and comparable functions. The only advantage of it maybe that we can customize it to whatever we want without having to wait for another release and it's totally free.
