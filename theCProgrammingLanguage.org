@@ -1,0 +1,6 @@
+* quick introduction
+
+In C, types like char and int are internally the same thing, both stored as a int value.
+An array of character will have a `\0` at its end to notify the end of the array.
+Function are passing int,char,float,double by their values. This means the function will create a private and temp copy of the values passed and alternation of the temp value will not affect the origin of the value
+However, when a function is taking a array of char, the parameter is passed by reference, meaning that the address of the first char of the array is passed by value into the function.
