@@ -4,3 +4,88 @@ In C, types like char and int are internally the same thing, both stored as a in
 An array of character will have a `\0` at its end to notify the end of the array.
 Function are passing int,char,float,double by their values. This means the function will create a private and temp copy of the values passed and alternation of the temp value will not affect the origin of the value
 However, when a function is taking a array of char, the parameter is passed by reference, meaning that the address of the first char of the array is passed by value into the function.
+
+* Types, Operators, ans Expressions
+** Data Types
+char: 1 byte, char is a numerical integer value.
+short: 2 bytes integer.
+int, long: the size varies from machine to machine, try to use sizeof to verify.
+
+** Constants
+Number constants are of no surprise.
+Float: <integer_part>[.<decimal_part>][<exp>]
+
+Char and String constants:
+- 'x' and "x" are different. The former is char constant and the latter is a String (char[]) with only a single char in it.
+We can put some visible char inside single quote to denote a char literal, however, there are also some characters not on the keyboard.
+So we need the a way to denote all ASCII chars as in the following methods.
+- '\ooo': ooo can be any three octal digits (0...7)
+- '\xhh': hh can be any two hex digits (0-9a-fA-f)
+
+** Others
+Increment: ++n the increments is done before usage of n while n++ is the opposite.
+
+* Control Flow
+** If-Else
+if (<expression>)
+    <statement>
+[
+else if (<expression>)
+    <statement>
+]*n
+[
+else
+    <statement>
+]
+
+** Switch
+switch (expression) {
+    case const-expr: statements
+    case const-expr: statements
+    default: statements
+}
+
+** While and For
+for (expr1 ; expr2 ; expr3) {
+    statement
+}
+is equivalent to
+expr1
+while (expr2) {
+    statement
+    expr3
+}
+
+** Do-while
+do
+    statement
+while (expression);
+
+** Break and Continue
+break will exit from the `for` `while` `do` loop`
+continue will goto the next iteration of the loops.
+
+** Goto and Labels
+label is like
+`<label>:`
+and `goto <label>` will direct the control to the label.
+
+
+* Functions and Program Structure
+
+
+* Randomly coming notes
+
+  #ifndef
+  #define
+  `typedef' is alias of types.
+  typedef <original_type> <newly_defined_type>
+  it seems that typedef can also be used as defining functions, it is able to define function type by specifying return type, parameters and function type name.
+  #endif
+  
+** Understand the * notation and differenct about pointer and the value itself.
+  
+** Struct
+   
+** strcmp and other string manipulating functions.
+

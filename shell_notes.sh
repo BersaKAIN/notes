@@ -100,4 +100,14 @@ ln -s <source_file/dir> <target_file/dir>
 # TODO: http://www.thegeekstuff.com/2011/01/regular-expressions-in-grep-command/
 # TODO: http://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/
 
+# kill, pkill and killall
+# kill a process whose id is <PID>
+kill <PID>
+# kill process whose name match a pattern
+pkill <Pattern>
+# kill all processes whose name contains a `v`
+pkill v
+# kill all processes whose name match exactly the pattern
+killall pattern
+
 
