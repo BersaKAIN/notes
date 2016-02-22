@@ -1,0 +1,17 @@
+# Encoding
+
+Information needs to be stored in some medium and presented to human in a visual form. To a computer, it stores as the most basic sequence of 0 and 1s. To a human, it is presented as a 'picture' of the character it represents or a clip of video.
+
+Text or characters is just one type of information and should have a way to encode them.
+
+## ASCII
+ASCII maps a set of charaters (english characters plus some other symbols, 128 of them) into a 7-bit. 0-127 will each be denoting one of the characters. Since computer at that time are 8-bit, there are multiple ways to use the other 128 places. And this is where IBM developed it's OEM and Microsoft developed it's ANSI. Both are similar and tries to do some dynamic changes to the second half. For example, when it knows it's reading Greek, it will get the greek letter page to the second half.
+
+## Old type and the new type
+### The old type
+Encoding methods like ASCII are of the old type, the code (a int in the case of ASCII) and it's representation in the machine is coupled. D is 68 in decimal and 44 in hex and thus it has a fixed binary form on the computer 0100 0100.
+
+### The new type
+Unicode is an example of the new type of encoding. The biggest difference between the two types is that the new type will first map a character into a code point. D will be mapped to U+0044, and how should this code point will be stored on a computer is left open. So people can develop multiple methods to encode it. UTF-8 UTF-16 UTF-32 are some of them.
+
+The utf series will have various number of bits to represent a character. The 8 in UTF-8 means the units building up the encoding of the char has 8-bits, and the 16 in UTF-16 means that units in UTF-16 is of size 16 and so forth.
